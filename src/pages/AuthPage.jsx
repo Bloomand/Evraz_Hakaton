@@ -1,35 +1,30 @@
 import React, { useState } from 'react';
 
 const AuthPage = () => {
-  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Здесь можно добавить код для обработки отправки формы, например, с помощью API
-
-    // После обработки формы можно сбросить значения полей
-    setFullName('');
     setEmail('');
     setPassword('');
+
   };
+
+  function checkUser(){
+    //отправка запроса на проверку
+    //1. Отправляем почту, проверяем есть ли такой пользователь и сверяем пароль,
+    // если неверен, возвращаем False
+    var userAccess = 1;
+    if(userAccess){
+      window.open("/main");
+    }
+  }
 
   return (
     <div>
       <h2>Регистрация</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="fullName">ФИО:</label>
-          <input
-            type="text"
-            id="fullName"
-            value={fullName}
-            onChange={(e) => setFullName(e.target.value)}
-            required
-          />
-        </div>
         <div>
           <label htmlFor="email">Email:</label>
           <input
@@ -37,7 +32,6 @@ const AuthPage = () => {
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
           />
         </div>
         <div>
@@ -47,10 +41,9 @@ const AuthPage = () => {
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
           />
         </div>
-        <button type="submit">Зарегистрироваться</button>
+        <button onClick={checkUser}>Зарегистрироваться</button>
       </form>
     </div>
   );
