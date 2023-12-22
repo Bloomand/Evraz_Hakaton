@@ -1,25 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 const AuthPage = () => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [userInfo, setUserInfo] = useState({
+    userId: -1,
+    role: ''
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setEmail('');
     setPassword('');
-
   };
 
-  function checkUser(){
-    //отправка запроса на проверку
-    //1. Отправляем почту, проверяем есть ли такой пользователь и сверяем пароль,
-    // если неверен, возвращаем False
-    var userAccess = 1;
-    if(userAccess){
-      window.open("/main");
-    }
+
+  function checkUser() {
+    //Запрос на получения id и role
+    //Пример заполнения объекта
+    setUserInfo({
+      userId: 1,
+      role: 0
+    });
+
+    console.log(userInfo);
   }
+
+  useEffect(() => {
+    userInfo.role = 0;
+    console.log(userInfo);
+    if (userInfo.userId != -1) {
+      let queryString = Object.keys(userInfo).map(key => key + '=' + encodeURIComponent(userInfo[key])).join('&');
+      window.location.href = '/main?' + queryString;
+      navigate('/main');
+    }
+  }, [userInfo]);
 
   return (
     <div>
