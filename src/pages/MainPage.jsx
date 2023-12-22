@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import Header from './Header';
 
 const MainPage = () => {
     const [example, setExample] = useState(null);
+    const [tooltip, setTooltip] = useState({});
     let stations;
     useEffect(() => {
         let params = new URLSearchParams(window.location.search);
@@ -99,9 +101,16 @@ const MainPage = () => {
                                         <div key={way.id} style={styles.wayInfo}>
                                             <div style={styles.wayHeader}>Путь {way.id + 1}</div>
                                             <div style={styles.loko}>{way.loko.info}</div>
-                                            <div>{way.wagons.map((wagon) => (
-                                                <div key={wagon.id} style={styles.wagon}>{wagon.info}</div>
-                                            ))}</div>
+                                            <div>{
+                                                way.wagons.map((wagon) => (
+                                                    <div key={wagon.id}
+                                                        onClick={() => handleWagonClick(wagon.id)}
+                                                        style={styles.wagon}>
+                                                        {wagon.info}
+                                                        {tooltip[wagon.id] && <div style={styles.customTooltip}>ID вагона: {wagon.id}</div>}
+                                                    </div>
+                                                ))
+                                            }</div>
                                         </div>
                                     ))}</div>
                                 </div>
@@ -117,10 +126,21 @@ const MainPage = () => {
         }
     }, [window.location.search]);
 
+    const handleWagonClick = (id) => {
+        // изменяем состояние для показа/скрытия подсказки для конкретного вагона
+        setTooltip(prevTooltip => ({
+            ...prevTooltip,
+            [id]: !prevTooltip[id]
+        }));
+    };
+
     return (
-        <div className="wrapper" style={styles.container}>
-            <div style={styles.exampleBox}>
-                {example}
+        <div>
+            <Header />
+            <div className="wrapper" style={styles.container}>
+                <div style={styles.exampleBox}>
+                    {example}
+                </div>
             </div>
         </div>
     );
@@ -132,74 +152,111 @@ const styles = {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#E5E4E2',
+        backgroundColor: '#F5F5F5', // более светлый оттенок для фона
         minHeight: '100vh',
-        padding: '20px'
+        padding: '20px',
+        fontFamily: "'Roboto', sans-serif" // добавление шрифта для современного вида
     },
     exampleBox: {
         backgroundColor: '#fff',
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-        width: '100%',
+        boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)', // более мягкое теневое размытие
+        borderRadius: '8px', // добавление закругления углов
+        width: '80%', // уменьшение ширины для лучшего восприятия
+        maxWidth: '1200px', // ограничение максимальной ширины
+        margin: '20px', // добавление внешнего отступа для разделения
+        padding: '20px', // внутреннее пространство вокруг контента
+        overflow: 'hidden' // избегаем переполнения элементов
     },
-    stationName: {
-        display: 'flex'
-    },
-    // Стили для каждой станции
     station: {
-        border: '2px solid #000',
+        border: '1px solid #CCC', // более тонкая и светлая рамка
+        borderRadius: '4px', // закругление углов
+        margin: '10px 0', // отступы сверху и снизу для каждой станции
         padding: '12px',
+        backgroundColor: '#FAFAFA', // светлый фон для каждой станции
+        transition: 'box-shadow 0.3s ease', // анимация при наведении
+        ':hover': {
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)', // тень при наведении для акцента на станции
+        }
     },
-    // Стили для названия станции
     stationHeader: {
-        fontWeight: 'bold',
-        fontSize: '24px',
-        color: '#000',
-        paddingBottom: '6px',
-        marginBottom: '6px'
+        fontWeight: '600', // жирнее, для привлечения внимания
+        fontSize: '1.5rem', // увеличенный размер шрифта
+        color: '#333', // более тёмный цвет текста для лучшей читаемости
+        paddingBottom: '10px',
     },
-    // Стили для парка
     park: {
-        paddingLeft: '16px', // отступы чтобы показать вложенность
-        borderLeft: '3px solid #349EFF', // левая граница чтобы выделить содержимое парка
+        padding: '10px 16px', // дополнительные отступы для чёткости
+        borderLeft: '4px solid #5CACEE', // изменение цвета и толщины линии
+        backgroundColor: '#FFFFFF', // белый фон для секции парка
+        margin: '8px 0',
+        borderRadius: '4px', // закругление углов
+        boxShadow: '0 2px 4px rgba(44, 62, 80, 0.15)' // добавление тени для парка
     },
-    // Стили для названия парка
     parkHeader: {
-        fontWeight: 'bold',
-        color: '#349EFF'
+        fontWeight: '500',
+        color: '#5CACEE',
+        marginBottom: '6px', // добавление отступа снизу
+        letterSpacing: '0.5px', // немного увеличенный межбуквенный интервал
     },
     wayInfo: {
         display: 'flex',
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        padding: '8px 0', // добавлены отступы для разделения
     },
     wayHeader: {
-        fontWeight: '500',
-        color: '#555',
-        paddingLeft: 20,
-        paddingRight: 20,
-        marginRight: 20,
-        borderRight: '1px solid #000'
+        fontWeight: '600',
+        color: '#444', // более темный для контраста
+        padding: '6px 12px',
+        background: '#EEE', // светлый фон для визуального разделения
+        borderRadius: '12px', // закругленные углы
+        marginRight: '16px' // увеличенный отступ справа для простора
     },
-
-    // Стили для информации о локомотиве
     loko: {
-        backgroundColor: '#e7e7e7',
-        padding: '5px 10px',
-        borderRadius: '8px',
-        display: 'inline-block', // чтобы элемент не растягивался на всю ширину
-        margin: '3px'
+        backgroundColor: '#FF4136', // яркий красный для локомотива
+        padding: '10px',
+        borderRadius: '12px 0 0 12px', // закругление только левых углов для локомотива
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContet: 'center',
+        margin: '6px 0',
+        fontWeight: 'bold',
+        color: '#ffffff',
+        minWidth: '80px', // минимальная ширина для единообразия
+        boxSizing: 'border-box', // чтобы padding не влиял на общие размеры
     },
-    // Стили для каждого вагона
     wagon: {
-        padding: '5px 10px',
-        borderRadius: '8px',
-        display: 'inline-block', // аналогично
-        backgroundColor: '#349EFF',
-        color: '#fff',
-        border: '1px solid #bee5eb',
-        margin: '3px'
-    }
+        cursor: 'pointer', // Добавьте это для улучшенного взаимодействия
+        position: 'relative',
+        display: 'inline-block',
+        backgroundColor: '#0074D9', // синий цвет вагонов
+        color: '#ffffff',
+        padding: '10px',
+        borderRadius: '0', // отсутствие закругления, чтобы вагоны выглядели как часть поезда
+        marginLeft: '-1px', // чтобы вагоны казались соединенными
+        border: '1px solid #99ccf3', // более светлая граница для контраста
+        fontWeight: 'bold',
+        fontSize: '0.85rem',
+        minWidth: '80px', // минимальная ширина для единообразия
+        boxSizing: 'border-box', // чтобы padding не влиял на размеры
+        ':last-child': {
+            borderRadius: '0 12px 12px 0', // закругление правых углов последнего вагона
+        }
+    },
+    customTooltip: {
+        position: 'absolute',
+        bottom: '100%', // чтобы показывать над элементом
+        left: '50%',
+        transform: 'translateX(-50%)',
+        padding: '5px',
+        backgroundColor: 'black',
+        color: 'white',
+        borderRadius: '4px',
+        whiteSpace: 'nowrap',
+        zIndex: '1000' // чтобы было над другими элементами
+    },
 }
+
 
 
 export default MainPage;
