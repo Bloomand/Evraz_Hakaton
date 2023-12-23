@@ -1,142 +1,132 @@
 import React, { useState, useEffect } from 'react';
-import Header from './Header';
+import { useLocation } from 'react-router-dom'
 
 const MainPage = () => {
-    const [example, setExample] = useState(null);
-    const [tooltip, setTooltip] = useState({});
-    let stations;
-    useEffect(() => {
-        let params = new URLSearchParams(window.location.search);
-        let userInfo = {};
-
-        for (let param of params.entries()) {
-            let [key, value] = param;
-            value = decodeURIComponent(value);
-            userInfo[key] = value;
-        }
-
-        console.log(userInfo);
-
-        if (userInfo.role === '0') {
-            stations = [
+    //Фейк дата,заменить и удалить перед релизом
+    const DATA = [
+        {
+            id: 0,
+            name: 'Cevero Disconnected',
+            parks: [
                 {
                     id: 0,
-                    name: 'Cevero Disconnected',
-                    parks: [
-                        {
+                    name: "Park 1",
+                    ways: [{
+                        id: 0,
+                        loko: {
                             id: 0,
-                            name: "Park 1",
-                            ways: [{
-                                id: 0,
-                                loko: {
-                                    id: 0,
-                                    info: 333
-                                },
-                                wagons: [{
-                                    id: 0,
-                                    info: 1332,
-                                },
-                                {
-                                    id: 1,
-                                    info: 35452,
-                                }]
-                            },
-                            {
-                                id: 1,
-                                loko: {
-                                    id: 3,
-                                    info: 4545
-                                },
-                                wagons: [{
-                                    id: 3,
-                                    info: 54,
-                                },
-                                {
-                                    id: 5,
-                                    info: 35452,
-                                }]
-                            }]
+                            info: 333
+                        },
+                        wagons: [{
+                            id: 0,
+                            info: 1332,
                         },
                         {
                             id: 1,
-                            name: "Park 2",
-                            ways: [{
-                                id: 0,
-                                loko: {
-                                    id: 0,
-                                    info: 332
-                                },
-                                wagons: [{
-                                    id: 0,
-                                    info: 135,
-                                },
-                                {
-                                    id: 1,
-                                    info: 3545,
-                                }]
-                            }]
+                            info: 35452,
+                        }]
+                    },
+                    {
+                        id: 1,
+                        loko: {
+                            id: 3,
+                            info: 4545
+                        },
+                        wagons: [{
+                            id: 3,
+                            info: 54,
+                        },
+                        {
+                            id: 5,
+                            info: 35452,
+                        }]
+                    }]
+                },
+                {
+                    id: 1,
+                    name: "Park 2",
+                    ways: [{
+                        id: 0,
+                        loko: {
+                            id: 0,
+                            info: 332
+                        },
+                        wagons: [{
+                            id: 0,
+                            info: 135,
+                        },
+                        {
+                            id: 1,
+                            info: 3545,
+                        }]
+                    }]
+                }
+            ]
+        }];
+    const [example, setExample] = useState();
+    const location = useLocation();
+    let { objects } = location.state;
+    useEffect(() => {
+        objects = objects.filter(station => station.status !== 0);
+
+
+        /*
+            //Сбор полной информации в бд
+            for (let station of DATA) {
+                //запрос на добавление информации в массив по объектно, запрос на наличие парков в текущих станциях
+                for (let park of station) {
+                    //запрос на добавление информации о park 
+                    for (let way of park) {
+                        //запрос на добавление информации о park 
+                        for (let part of way) {
+                            //запрос на добавление информации о park 
                         }
-                    ]
-                }];
-            setExample(
-                <div>
-                    {stations.map((station) => (
-                        <div key={station.id} style={styles.station}>
-                            <div style={styles.stationName}>
-                                <div style={styles.stationHeader}>{station.name}</div>
-                                <hr style={{
-                                    color: '#000000',
-                                    backgroundColor: '#000000',
-                                    height: .2,
-                                    width: '100%',
-                                    margin: 4,
-                                    marginTop: 12,
-                                    borderColor: '#000000'
-                                }} />
-                            </div>
-                            <div>{station.parks.map((park) => (
-                                <div key={park.id} style={styles.park}>
-                                    <div style={styles.parkHeader}>{park.name}</div>
-                                    <div >{park.ways.map((way) => (
-                                        <div key={way.id} style={styles.wayInfo}>
-                                            <div style={styles.wayHeader}>Путь {way.id + 1}</div>
-                                            <div style={styles.loko}>{way.loko.info}</div>
-                                            <div>{
-                                                way.wagons.map((wagon) => (
-                                                    <div key={wagon.id}
-                                                        onClick={() => handleWagonClick(wagon.id)}
-                                                        style={styles.wagon}>
-                                                        {wagon.info}
-                                                        {tooltip[wagon.id] && <div style={styles.customTooltip}>ID вагона: {wagon.id}</div>}
-                                                    </div>
-                                                ))
-                                            }</div>
-                                        </div>
-                                    ))}</div>
-                                </div>
-                            ))}</div>
+                    }
+                }
+            }
+            */
+        setExample(
+            <div>
+                {DATA.map((station) => (
+                    <div key={station.id} style={styles.station}>
+                        <div style={styles.stationName}>
+                            <div style={styles.stationHeader}>{station.name}</div>
+                            <hr style={{
+                                color: '#000000',
+                                backgroundColor: '#000000',
+                                height: .2,
+                                width: '100%',
+                                margin: 4,
+                                marginTop: 12,
+                                borderColor: '#000000'
+                            }} />
                         </div>
-                    ))}
-                </div>
+                        <div>{station.parks.map((park) => (
+                            <div key={park.id} style={styles.park}>
+                                <div style={styles.parkHeader}>{park.name}</div>
+                                <div >{park.ways.map((way) => (
+                                    <div key={way.id} style={styles.wayInfo}>
+                                        <div style={styles.wayHeader}>Путь {way.id + 1}</div>
+                                        <div style={styles.loko}>{way.loko.info}</div>
+                                        <div>{
+                                            way.wagons.map((wagon) => (
+                                                <div key={wagon.id}
+                                                    style={styles.wagon}>
+                                                    {wagon.info}
+                                                </div>
+                                            ))}</div>
+                                    </div>
+                                ))}</div>
+                            </div>
+                        ))}</div>
+                    </div>
+                ))}
+            </div>
 
-            );
-            console.log(stations);
-        } else {
-            userInfo = { id: 0, name: 'CD' };
-        }
+        );
     }, [window.location.search]);
-
-    const handleWagonClick = (id) => {
-        // изменяем состояние для показа/скрытия подсказки для конкретного вагона
-        setTooltip(prevTooltip => ({
-            ...prevTooltip,
-            [id]: !prevTooltip[id]
-        }));
-    };
-
     return (
         <div>
-            <Header />
             <div className="wrapper" style={styles.container}>
                 <div style={styles.exampleBox}>
                     {example}
@@ -146,7 +136,6 @@ const MainPage = () => {
     );
 }
 
-// Допустим, у нас есть базовые стили, как вы упомянули выше. Теперь давайте их расширим
 const styles = {
     container: {
         display: 'flex',
@@ -256,7 +245,6 @@ const styles = {
         zIndex: '1000' // чтобы было над другими элементами
     },
 }
-
 
 
 export default MainPage;

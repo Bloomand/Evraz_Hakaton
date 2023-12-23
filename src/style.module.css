@@ -1,4 +1,4 @@
-.AuthPage {
+.AuthPage{
   position: fixed;
   top: 0;
   left: 0;
@@ -9,7 +9,6 @@
   justify-content: center;
   background-color: #E5E4E2;
 }
-
 .container {
   width: 600px;
   margin-top: -50px;
@@ -18,7 +17,7 @@
   border-radius: 8px;
   background-color: white;
   font-size: 20px;
-
+  
 }
 
 
@@ -42,8 +41,7 @@
   margin-bottom: 20px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 20px;
+  box-sizing: border-box; /* Добавляет паддинг в общую ширину и высоту элемента */
 }
 
 .submit_button {
@@ -58,5 +56,5 @@
 }
 
 .submit_button:hover {
-  background-color: #ec7e00;
+  background-color: #349EFF;
 }
