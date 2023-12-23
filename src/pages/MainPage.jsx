@@ -18,9 +18,9 @@ const MainPage = () => {
 
     useEffect(() => {
         objects = objects.filter(station => station.status !== 0);
-
+        
         //Сбор полной информации в бд
-        for (let station of DATA) {
+        for (let station of objects) {
             //запрос парков на станции
             paramObj.body = JSON.stringify({
                 StationId: station.id
