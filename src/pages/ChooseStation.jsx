@@ -16,30 +16,26 @@ const ChooseStation = () => {
 
     let stationList;
 
+    const paramObj = {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: ""
+    }
+
     if (userInfo.role == 0) {
         //запрос на все станции
-        paramObj = {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: "POST",
-        }
+        
         fetch("https://26.254.63.154:7226/admin_stations", paramObj)
             .then(response => response.json())
             .then(data => { stationList = data["stations"] })
     } else {
         //запрос на одну станцию с учетом id usera userInfo.userId
-        paramObj = {
-            headers: {
-                'Accept': 'appli cation/json',
-                'Content-Type': 'application/json'
-            },
-            method: "POST",
-            body: JSON.stringify({
-                userId: userInfo.userId
-            })
-        }
+        paramObj.body =  JSON.stringify({
+            userId: userInfo.userId
+        })
         fetch("https://26.254.63.154:7226/user_station", paramObj)
             .then(response => response.json())
             .then(data => { stationList = [data["station"]] })
