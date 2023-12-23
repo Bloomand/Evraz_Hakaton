@@ -18,32 +18,36 @@ const ChooseStation = () => {
 
     if (userInfo.role == 0) {
         //запрос на все станции
-        paramObj = {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
+        stationList = [
+            {
+                id: 0,
+                name: "Опция 1"
             },
-            method: "POST",
-        }
-        fetch("https://26.254.63.154:7226/admin_stations", paramObj)
-            .then(response => response.json())
-            .then(data => { stationList = data["stations"] })
+            {
+                id: 1,
+                name: "Опция 2"
+            },
+            {
+                id: 2,
+                name: "Опция 3"
+            },
+            {
+                id: 3,
+                name: "Опция 4"
+            },
+            {
+                id: 4,
+                name: "Опция 5"
+            }
+        ];
     } else {
         //запрос на одну станцию с учетом id usera userInfo.userId
-        paramObj = {
-            headers: {
-                'Accept': 'appli cation/json',
-                'Content-Type': 'application/json'
-            },
-            method: "POST",
-            body: JSON.stringify({
-                userId: userInfo.userId
-            })
-        }
-        fetch("https://26.254.63.154:7226/user_station", paramObj)
-            .then(response => response.json())
-            .then(data => { stationList = [data["station"]] })
-
+        stationList = [
+            {
+                id: 2,
+                name: "Опция 3"
+            }
+        ]
     }
 
     const [optionsList, setOptionsList] = useState(stationList.map(option => ({ ...option, status: 0 })));
