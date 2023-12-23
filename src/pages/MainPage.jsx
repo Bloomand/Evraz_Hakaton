@@ -7,7 +7,7 @@ const MainPage = () => {
     const location = useLocation();
     let { objects } = location.state;
 
-    paramObj = {
+    const paramObj = {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'

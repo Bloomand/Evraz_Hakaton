@@ -22,7 +22,7 @@ const AuthPage = () => {
   function checkUser() {
     //Запрос на получения id и role
 
-    paramObj = {
+    const paramObj = {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
