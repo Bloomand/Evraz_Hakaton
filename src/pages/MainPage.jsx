@@ -6,7 +6,18 @@ const MainPage = () => {
     const [example, setExample] = useState();
     const location = useLocation();
     let { objects } = location.state;
+
+    const paramObj = {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: ""
+    }
+
     useEffect(() => {
+<<<<<<< HEAD
         
         objects = objects.filter(station => station.status !== 0)
 
@@ -116,32 +127,116 @@ const MainPage = () => {
                 ]
             }];
         /*
+=======
+        objects = objects.filter(station => station.status !== 0);
+        
+>>>>>>> 454ff68ae56fefbc88296d83a243b7762c20139e
         //Сбор полной информации в бд
-        for (let station of DATA) {
-            //запрос на добавление информации в массив по объектно, запрос на наличие парков в текущих станциях
-            paramObj = {
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                method: "POST",
-                body: JSON.stringify({
-                    StationId: station.id
-                })
-            }
-            fetch("https://26.254.63.154:7226/station_parks bvcgf", paramObj)
+        for (let station of objects) {
+            //запрос парков на станции
+            paramObj.body = JSON.stringify({
+                StationId: station.id
+            });
+            fetch("https://26.254.63.154:7226/station_parks", paramObj)
                 .then(response => response.json())
-                .then(data => { station.parks = data["parkIds"] })
-        }
-        for (let park of station) {
-            //запрос на добавление информации о park 
-            for (let way of park) {
-                //запрос на добавление информации о park 
-                for (let part of way) {
+                .then(data => {
+                    station.parks = [];
+                    data["parkIds"].forEach(element => {
+                        station.parks.push({
+                            id: element,
+                            name: "",
+                            paths: []
+                        });
+                    });
+                });
+
+                for (let park of station.parks) {
                     //запрос на добавление информации о park 
+        
+                    paramObj.body = JSON.stringify({
+                        ParkId: park.id
+                    });
+        
+                    fetch("https://26.254.63.154:7226/park", paramObj)
+                        .then(response => response.json())
+                        .then(data => {
+                            park.name = data["name"];
+                            data["paths"].forEach(element => {
+                                park.paths.push({
+                                    id: element,
+                                    loco: [],
+                                    wagons: []
+                                });
+                            });
+                        });
+        
+                    for (let path of park) {
+                        //запрос на добавление информации o path
+        
+                        paramObj.body = JSON.stringify({
+                            PathId: path.id
+                        });
+        
+                        fetch("https://26.254.63.154:7226/path_objects", paramObj)
+                            .then(response => response.json())
+                            .then(data => {
+                                data["objects"].forEach(element => {
+                                    if (element["type"] == 1)
+                                        path.loco.push({
+                                            id: element["id"],
+                                            position: -1,
+                                            driver: "",
+                                            operation: ""
+                                        });
+                                    else
+                                        path.wagons.push({
+                                            id: element["id"],
+                                            type: "",
+                                            owner: "",
+                                            isSick: true,
+                                            isEmpty: true,
+                                            position: -1,
+                                            cargoType: "",
+                                            cargoOperation: -1,
+                                            operation: "",
+                                            maxCapacity: -1,
+                                            currentCargoAmount: -1
+                                        });
+                                });
+                            });
+        
+                        for (let loco of path.loco) {
+                            //запрос на добавление информации о локомотивах 
+                            fetch("https://26.254.63.154:7226/locomotive", paramObj)
+                            .then(response => response.json())
+                            .then(data => {
+                                loco.position = data["position"];
+                                loco.driver = data["driver"];
+                                loco.operation = data["operation"];
+                            });
+                        }
+        
+                        for (let wagon of path.wagons) {
+                            //запрос на добавление информации о вагонах 
+                            fetch("https://26.254.63.154:7226/wagons", paramObj)
+                            .then(response => response.json())
+                            .then(data => {
+                                wagon.type = data["type"];
+                                wagon.owner = data["owner"];
+                                wagon.isSick = data["isSick"];
+                                wagon.isEmpty = data["isEmpty"];
+                                wagon.position = data["position"];
+                                wagon.cargoType = data["cargoType"];
+                                wagon.cargoOperation = data["cargoOperation"];
+                                wagon.operation = data["operation"];
+                                wagon.maxCapacity = data["maxCapacity"];
+                                wagon.currentCargoAmount = data["currentCargoAmount"];
+                            });
+                        }
+                    }
                 }
-            }
         }
+<<<<<<< HEAD
         */
         setExample(<div> {
             DATA.map((station) => (
@@ -157,6 +252,43 @@ const MainPage = () => {
                             marginTop: 12,
                             borderColor: '#000000'
                         }} />
+=======
+        
+        setExample(
+            <div>
+                {objects.map((station) => (
+                    <div key={station.id} style={styles.station}>
+                        <div style={styles.stationName}>
+                            <div style={styles.stationHeader}>{station.name}</div>
+                            <hr style={{
+                                color: '#000000',
+                                backgroundColor: '#000000',
+                                height: .2,
+                                width: '100%',
+                                margin: 4,
+                                marginTop: 12,
+                                borderColor: '#000000'
+                            }} />
+                        </div>
+                        <div>{station.parks.map((park) => (
+                            <div key={park.id} style={styles.park}>
+                                <div style={styles.parkHeader}>{park.name}</div>
+                                <div >{park.paths.map((path) => (
+                                    <div key={path.id} style={styles.pathInfo}>
+                                        <div style={styles.pathHeader}>Путь {path.id + 1}</div>
+                                        <div style={styles.loko}>{path.loko.info}</div>
+                                        <div>{
+                                            path.wagons.map((wagon) => (
+                                                <div key={wagon.id}
+                                                    style={styles.wagon}>
+                                                    {wagon.info}
+                                                </div>
+                                            ))}</div>
+                                    </div>
+                                ))}</div>
+                            </div>
+                        ))}</div>
+>>>>>>> 454ff68ae56fefbc88296d83a243b7762c20139e
                     </div>
                     <div>{station.parks.map((park) => (
                         <div key={park.id} style={styles.park}>
@@ -244,7 +376,7 @@ const styles = {
         color: '#5CACEE',
         letterSpacing: '0.5px', // немного увеличенный межбуквенный интервал
     },
-    wayInfo: {
+    pathInfo: {
         display: 'flex',
         backgroundColor: '#E5E4E2',
         padding: '5px 15px',
@@ -252,7 +384,7 @@ const styles = {
         borderRadius: 5,
         flexDirection: 'row',
     },
-    wayHeader: {
+    pathHeader: {
         fontWeight: '600',
         color: '#444', // более темный для контраста
         padding: '6px 12px',

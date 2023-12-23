@@ -22,10 +22,32 @@ const AuthPage = () => {
   function checkUser() {
     //Запрос на получения id и role
 
+<<<<<<< HEAD
     setUserInfo({
       userId: 0,
       role: 0
     })
+=======
+    const paramObj = {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify({
+        login: email,
+        password: password
+      })
+    }
+    fetch("https://26.254.63.154:7226/auth", paramObj)
+      .then(response => response.json())
+      .then(data => {
+        setUserInfo({
+          userId: data["id"],
+          role: data["role"]
+        })
+      });
+>>>>>>> 454ff68ae56fefbc88296d83a243b7762c20139e
     console.log(userInfo);
   }
 

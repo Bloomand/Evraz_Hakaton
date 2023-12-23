@@ -16,8 +16,18 @@ const ChooseStation = () => {
 
     let stationList;
 
+    const paramObj = {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: ""
+    }
+
     if (userInfo.role == 0) {
         //запрос на все станции
+<<<<<<< HEAD
         stationList = [
             {
                 id: 0,
@@ -48,6 +58,21 @@ const ChooseStation = () => {
                 name: "Опция 3"
             }
         ]
+=======
+        
+        fetch("https://26.254.63.154:7226/admin_stations", paramObj)
+            .then(response => response.json())
+            .then(data => { stationList = data["stations"] })
+    } else {
+        //запрос на одну станцию с учетом id usera userInfo.userId
+        paramObj.body =  JSON.stringify({
+            userId: userInfo.userId
+        })
+        fetch("https://26.254.63.154:7226/user_station", paramObj)
+            .then(response => response.json())
+            .then(data => { stationList = [data["station"]] })
+
+>>>>>>> 454ff68ae56fefbc88296d83a243b7762c20139e
     }
 
     const [optionsList, setOptionsList] = useState(stationList.map(option => ({ ...option, status: 0 })));
