@@ -37,92 +37,94 @@ const MainPage = () => {
                         });
                     });
                 });
-        }
-        for (let park of station.parks) {
-            //запрос на добавление информации о park 
 
-            paramObj.body = JSON.stringify({
-                ParkId: park.id
-            });
-
-            fetch("https://26.254.63.154:7226/park", paramObj)
-                .then(response => response.json())
-                .then(data => {
-                    park.name = data["name"];
-                    data["paths"].forEach(element => {
-                        park.paths.push({
-                            id: element,
-                            loco: [],
-                            wagons: []
-                        });
+                for (let park of station.parks) {
+                    //запрос на добавление информации о park 
+        
+                    paramObj.body = JSON.stringify({
+                        ParkId: park.id
                     });
-                });
-
-            for (let path of park) {
-                //запрос на добавление информации o path
-
-                paramObj.body = JSON.stringify({
-                    PathId: path.id
-                });
-
-                fetch("https://26.254.63.154:7226/path_objects", paramObj)
-                    .then(response => response.json())
-                    .then(data => {
-                        data["objects"].forEach(element => {
-                            if (element["type"] == 1)
-                                path.loco.push({
-                                    id: element["id"],
-                                    position: -1,
-                                    driver: "",
-                                    operation: ""
+        
+                    fetch("https://26.254.63.154:7226/park", paramObj)
+                        .then(response => response.json())
+                        .then(data => {
+                            park.name = data["name"];
+                            data["paths"].forEach(element => {
+                                park.paths.push({
+                                    id: element,
+                                    loco: [],
+                                    wagons: []
                                 });
-                            else
-                                path.wagons.push({
-                                    id: element["id"],
-                                    type: "",
-                                    owner: "",
-                                    isSick: true,
-                                    isEmpty: true,
-                                    position: -1,
-                                    cargoType: "",
-                                    cargoOperation: -1,
-                                    operation: "",
-                                    maxCapacity: -1,
-                                    currentCargoAmount: -1
-                                });
+                            });
                         });
-                    });
-
-                for (let loco of path.loco) {
-                    //запрос на добавление информации о локомотивах 
-                    fetch("https://26.254.63.154:7226/locomotive", paramObj)
-                    .then(response => response.json())
-                    .then(data => {
-                        loco.position = data["position"],
-                        loco.driver = data["driver"],
-                        loco.operation = data["operation"]
-                    });
+        
+                    for (let path of park) {
+                        //запрос на добавление информации o path
+        
+                        paramObj.body = JSON.stringify({
+                            PathId: path.id
+                        });
+        
+                        fetch("https://26.254.63.154:7226/path_objects", paramObj)
+                            .then(response => response.json())
+                            .then(data => {
+                                data["objects"].forEach(element => {
+                                    if (element["type"] == 1)
+                                        path.loco.push({
+                                            id: element["id"],
+                                            position: -1,
+                                            driver: "",
+                                            operation: ""
+                                        });
+                                    else
+                                        path.wagons.push({
+                                            id: element["id"],
+                                            type: "",
+                                            owner: "",
+                                            isSick: true,
+                                            isEmpty: true,
+                                            position: -1,
+                                            cargoType: "",
+                                            cargoOperation: -1,
+                                            operation: "",
+                                            maxCapacity: -1,
+                                            currentCargoAmount: -1
+                                        });
+                                });
+                            });
+        
+                        for (let loco of path.loco) {
+                            //запрос на добавление информации о локомотивах 
+                            fetch("https://26.254.63.154:7226/locomotive", paramObj)
+                            .then(response => response.json())
+                            .then(data => {
+                                loco.position = data["position"],
+                                loco.driver = data["driver"],
+                                loco.operation = data["operation"]
+                            });
+                        }
+        
+                        for (let wagon of path.wagons) {
+                            //запрос на добавление информации о вагонах 
+                            fetch("https://26.254.63.154:7226/wagons", paramObj)
+                            .then(response => response.json())
+                            .then(data => {
+                                wagon.type = data["type"],
+                                wagon.owner = data["owner"],
+                                wagon.isSick = data["isSick"],
+                                wagon.isEmpty = data["isEmpty"],
+                                wagon.position = data["position"],
+                                wagon.cargoType = data["cargoType"],
+                                wagon.cargoOperation = data["cargoOperation"],
+                                wagon.operation = data["operation"],
+                                wagon.maxCapacity = data["maxCapacity"],
+                                wagon.currentCargoAmount = data["currentCargoAmount"]
+                            });
+                        }
+                    }
                 }
-
-                for (let wagon of path.wagons) {
-                    //запрос на добавление информации о вагонах 
-                    fetch("https://26.254.63.154:7226/wagons", paramObj)
-                    .then(response => response.json())
-                    .then(data => {
-                        wagon.type = data["type"],
-                        wagon.owner = data["owner"],
-                        wagon.isSick = data["isSick"],
-                        wagon.isEmpty = data["isEmpty"],
-                        wagon.position = data["position"],
-                        wagon.cargoType = data["cargoType"],
-                        wagon.cargoOperation = data["cargoOperation"],
-                        wagon.operation = data["operation"],
-                        wagon.maxCapacity = data["maxCapacity"],
-                        wagon.currentCargoAmount = data["currentCargoAmount"]
-                    });
-                }
-            }
         }
+        
         setExample(
             <div>
                 {DATA.map((station) => (
