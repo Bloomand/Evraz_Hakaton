@@ -98,9 +98,9 @@ const MainPage = () => {
                             fetch("https://26.254.63.154:7226/locomotive", paramObj)
                             .then(response => response.json())
                             .then(data => {
-                                loco.position = data["position"],
-                                loco.driver = data["driver"],
-                                loco.operation = data["operation"]
+                                loco.position = data["position"];
+                                loco.driver = data["driver"];
+                                loco.operation = data["operation"];
                             });
                         }
         
@@ -109,16 +109,16 @@ const MainPage = () => {
                             fetch("https://26.254.63.154:7226/wagons", paramObj)
                             .then(response => response.json())
                             .then(data => {
-                                wagon.type = data["type"],
-                                wagon.owner = data["owner"],
-                                wagon.isSick = data["isSick"],
-                                wagon.isEmpty = data["isEmpty"],
-                                wagon.position = data["position"],
-                                wagon.cargoType = data["cargoType"],
-                                wagon.cargoOperation = data["cargoOperation"],
-                                wagon.operation = data["operation"],
-                                wagon.maxCapacity = data["maxCapacity"],
-                                wagon.currentCargoAmount = data["currentCargoAmount"]
+                                wagon.type = data["type"];
+                                wagon.owner = data["owner"];
+                                wagon.isSick = data["isSick"];
+                                wagon.isEmpty = data["isEmpty"];
+                                wagon.position = data["position"];
+                                wagon.cargoType = data["cargoType"];
+                                wagon.cargoOperation = data["cargoOperation"];
+                                wagon.operation = data["operation"];
+                                wagon.maxCapacity = data["maxCapacity"];
+                                wagon.currentCargoAmount = data["currentCargoAmount"];
                             });
                         }
                     }
