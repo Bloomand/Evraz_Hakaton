@@ -127,7 +127,7 @@ const MainPage = () => {
         
         setExample(
             <div>
-                {DATA.map((station) => (
+                {objects.map((station) => (
                     <div key={station.id} style={styles.station}>
                         <div style={styles.stationName}>
                             <div style={styles.stationHeader}>{station.name}</div>
