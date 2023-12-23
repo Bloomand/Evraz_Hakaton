@@ -21,17 +21,30 @@ const AuthPage = () => {
 
   function checkUser() {
     //Запрос на получения id и role
-    //Пример заполнения объекта
-    setUserInfo({
-      userId: 1,
-      role: 0
-    });
 
+    paramObj = {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify({
+        login: email,
+        password: password
+      })
+    }
+    fetch("https://26.254.63.154:7226/auth", paramObj)
+      .then(response => response.json())
+      .then(data => {
+        setUserInfo({
+          userId: data["id"],
+          role: data["role"]
+        })
+      });
     console.log(userInfo);
   }
 
   useEffect(() => {
-    userInfo.role = 1;//Фейк изменение роли, удалить перед релизом
     console.log(userInfo);
     if (userInfo.userId != -1) {
       let queryString = Object.keys(userInfo).map(key => key + '=' + encodeURIComponent(userInfo[key])).join('&');

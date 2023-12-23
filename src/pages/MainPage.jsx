@@ -2,89 +2,39 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom'
 
 const MainPage = () => {
-    //Фейк дата,заменить и удалить перед релизом
-    const DATA = [
-        {
-            id: 0,
-            name: 'Cevero Disconnected',
-            parks: [
-                {
-                    id: 0,
-                    name: "Park 1",
-                    ways: [{
-                        id: 0,
-                        loko: {
-                            id: 0,
-                            info: 333
-                        },
-                        wagons: [{
-                            id: 0,
-                            info: 1332,
-                        },
-                        {
-                            id: 1,
-                            info: 35452,
-                        }]
-                    },
-                    {
-                        id: 1,
-                        loko: {
-                            id: 3,
-                            info: 4545
-                        },
-                        wagons: [{
-                            id: 3,
-                            info: 54,
-                        },
-                        {
-                            id: 5,
-                            info: 35452,
-                        }]
-                    }]
-                },
-                {
-                    id: 1,
-                    name: "Park 2",
-                    ways: [{
-                        id: 0,
-                        loko: {
-                            id: 0,
-                            info: 332
-                        },
-                        wagons: [{
-                            id: 0,
-                            info: 135,
-                        },
-                        {
-                            id: 1,
-                            info: 3545,
-                        }]
-                    }]
-                }
-            ]
-        }];
+
     const [example, setExample] = useState();
     const location = useLocation();
     let { objects } = location.state;
     useEffect(() => {
         objects = objects.filter(station => station.status !== 0);
 
-
-        /*
-            //Сбор полной информации в бд
-            for (let station of DATA) {
-                //запрос на добавление информации в массив по объектно, запрос на наличие парков в текущих станциях
-                for (let park of station) {
+        //Сбор полной информации в бд
+        for (let station of DATA) {
+            //запрос на добавление информации в массив по объектно, запрос на наличие парков в текущих станциях
+            paramObj = {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                method: "POST",
+                body: JSON.stringify({
+                    StationId: station.id
+                })
+            }
+            fetch("https://26.254.63.154:7226/station_parks bvcgf", paramObj)
+                .then(response => response.json())
+                .then(data => { station.parks = data["parkIds"] })
+        }
+        for (let park of station) {
+            //запрос на добавление информации о park 
+            for (let way of park) {
+                //запрос на добавление информации о park 
+                for (let part of way) {
                     //запрос на добавление информации о park 
-                    for (let way of park) {
-                        //запрос на добавление информации о park 
-                        for (let part of way) {
-                            //запрос на добавление информации о park 
-                        }
-                    }
                 }
             }
-            */
+        }
         setExample(
             <div>
                 {DATA.map((station) => (
@@ -123,7 +73,7 @@ const MainPage = () => {
                 ))}
             </div>
 
-        );
+        )
     }, [window.location.search]);
     return (
         <div>

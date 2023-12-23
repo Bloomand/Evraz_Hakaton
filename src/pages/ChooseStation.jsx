@@ -18,36 +18,32 @@ const ChooseStation = () => {
 
     if (userInfo.role == 0) {
         //запрос на все станции
-        stationList = [
-            {
-                id: 0,
-                name: "Опция 1"
+        paramObj = {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
             },
-            {
-                id: 1,
-                name: "Опция 2"
-            },
-            {
-                id: 2,
-                name: "Опция 3"
-            },
-            {
-                id: 3,
-                name: "Опция 4"
-            },
-            {
-                id: 4,
-                name: "Опция 5"
-            }
-        ];
+            method: "POST",
+        }
+        fetch("https://26.254.63.154:7226/admin_stations", paramObj)
+            .then(response => response.json())
+            .then(data => { stationList = data["stations"] })
     } else {
         //запрос на одну станцию с учетом id usera userInfo.userId
-        stationList = [
-            {
-                id: 2,
-                name: "Опция 3"
-            }
-        ]
+        paramObj = {
+            headers: {
+                'Accept': 'appli cation/json',
+                'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify({
+                userId: userInfo.userId
+            })
+        }
+        fetch("https://26.254.63.154:7226/user_station", paramObj)
+            .then(response => response.json())
+            .then(data => { stationList = [data["station"]] })
+
     }
 
     const [optionsList, setOptionsList] = useState(stationList.map(option => ({ ...option, status: 0 })));
@@ -76,32 +72,51 @@ const ChooseStation = () => {
         navigate('/main', { state: { objects: optionsList } });
     }
     return (
-        <div style={styles.container}>
-            <h1>Выбор станции</h1>
-            <div style={styles.buttonContainer}>
-                {optionsList.map(option => (
-                    <button
-                        key={option.id}
-                        onClick={() => handleStationClick(option.id)}
-                        style={{ ...styles.button, ...(option.status === 1 ? styles.activeButton : {}) }}
-                    >
-                        {option.name}
-                    </button>
-                ))}
+        <div style={styles.pageall}>
+            <div style={styles.container}>
+                <h1>Выбор станции</h1>
+                <div style={styles.buttonContainer}>
+                    {optionsList.map(option => (
+                        <button
+                            key={option.id}
+                            onClick={() => handleStationClick(option.id)}
+                            style={{ ...styles.button, ...(option.status === 1 ? styles.activeButton : {}) }}
+                        >
+                            {option.name}
+                        </button>
+                    ))}
+                </div>
+                <button id="button_next" onClick={stationInfo} disabled={numChoice === 0}>Перейти в меню станции</button>
             </div>
-            <button id="button_next" onClick={stationInfo} disabled={numChoice === 0}>Перейти в меню станции</button>
         </div>
-    );
+    )
 };
 
 const styles = {
+    pageall: {
+        position: 'fixed',
+        top: '0px',
+        left: '0px',
+        width: '100%',
+        height: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: '#E5E4E2',
+    },
     container: {
+        width: '800px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         margin: '20px',
+        background: 'white',
+        fontSize: '25px',
+        paddingBottom: '20px',
     },
     buttonContainer: {
+        fontSize: '25px',
+        height: '50px',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -117,9 +132,9 @@ const styles = {
         transition: 'background-color 0.3s ease'
     },
     activeButton: {
-        background: 'green',
+        background: '#349EFF',
         color: 'white',
-        borderColor: 'green'
+        borderColor: '#349EFF'
     }
 }
 
