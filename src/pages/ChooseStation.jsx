@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Header from './Header';
+import DATA from '../Data';
+import Shipment from '../Shipment';
 
 
 const ChooseStation = () => {
@@ -14,65 +17,25 @@ const ChooseStation = () => {
         userInfo[key] = value;
     }
 
-    let stationList;
-
-    const paramObj = {
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        method: "POST",
-        body: ""
-    }
+    let stationList = [];
 
     if (userInfo.role == 0) {
         //запрос на все станции
-<<<<<<< HEAD
-        stationList = [
-            {
-                id: 0,
-                name: "Опция 1"
-            },
-            {
-                id: 1,
-                name: "Опция 2"
-            },
-            {
-                id: 2,
-                name: "Опция 3"
-            },
-            {
-                id: 3,
-                name: "Опция 4"
-            },
-            {
-                id: 4,
-                name: "Опция 5"
-            }
-        ];
+        for (let i of DATA.stations){
+            stationList.push({id:i.id,name:i.name});
+        }
     } else {
         //запрос на одну станцию с учетом id usera userInfo.userId
-        stationList = [
-            {
-                id: 2,
-                name: "Опция 3"
+        for (let i of Shipment.shipment){
+            if(i.operator==userInfo.userId){
+                for (let k of DATA.stations){
+                    if(i.station==k.id){
+                        stationList.push({id:k.id,name:k.name});
+                    }
+                    
+                }
             }
-        ]
-=======
-        
-        fetch("https://26.254.63.154:7226/admin_stations", paramObj)
-            .then(response => response.json())
-            .then(data => { stationList = data["stations"] })
-    } else {
-        //запрос на одну станцию с учетом id usera userInfo.userId
-        paramObj.body =  JSON.stringify({
-            userId: userInfo.userId
-        })
-        fetch("https://26.254.63.154:7226/user_station", paramObj)
-            .then(response => response.json())
-            .then(data => { stationList = [data["station"]] })
-
->>>>>>> 454ff68ae56fefbc88296d83a243b7762c20139e
+        }
     }
 
     const [optionsList, setOptionsList] = useState(stationList.map(option => ({ ...option, status: 0 })));
@@ -115,7 +78,7 @@ const ChooseStation = () => {
                         </button>
                     ))}
                 </div>
-                <button id="button_next" onClick={stationInfo} disabled={numChoice === 0}>Перейти в меню станции</button>
+                <button style={styles.NextPageButton} id="button_next" onClick={stationInfo} disabled={numChoice === 0}>Перейти в меню станции</button>
             </div>
         </div>
     )
@@ -145,7 +108,6 @@ const styles = {
     },
     buttonContainer: {
         fontSize: '25px',
-        height: '50px',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -153,7 +115,7 @@ const styles = {
         marginTop: '10px'
     },
     button: {
-        padding: '10px 20px',
+        padding: '20px 20px',
         margin: '5px',
         border: '1px solid #ccc',
         background: 'white',
@@ -164,6 +126,16 @@ const styles = {
         background: '#349EFF',
         color: 'white',
         borderColor: '#349EFF'
+    },
+    NextPageButton:{
+        backgroundColor:'black',
+        padding:'10px 30px 10px 30px',
+        margin: 20,
+        color:'white',  
+        display:'flex',
+        alignItems:'center',
+        fontWeight:'bolt',
+        fontSize:'18px'
     }
 }
 

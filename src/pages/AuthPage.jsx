@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from '../style.module.css';
+import Header from './Header'
+import Users from '../User';
 
 const AuthPage = () => {
   const navigate = useNavigate();
@@ -20,35 +22,15 @@ const AuthPage = () => {
 
 
   function checkUser() {
-    //Запрос на получения id и role
-
-<<<<<<< HEAD
-    setUserInfo({
-      userId: 0,
-      role: 0
-    })
-=======
-    const paramObj = {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      method: "POST",
-      body: JSON.stringify({
-        login: email,
-        password: password
-      })
-    }
-    fetch("https://26.254.63.154:7226/auth", paramObj)
-      .then(response => response.json())
-      .then(data => {
+    for (let i of Users.users) {
+      if (i.login == email && i.password == password) {
         setUserInfo({
-          userId: data["id"],
-          role: data["role"]
+          userId: i.id,
+          role: i.role
         })
-      });
->>>>>>> 454ff68ae56fefbc88296d83a243b7762c20139e
-    console.log(userInfo);
+      }
+    }
+
   }
 
   useEffect(() => {
@@ -61,35 +43,47 @@ const AuthPage = () => {
   }, [userInfo]);
   return (
     <div className={styles.AuthPage}>
-      <div className={styles.container}>
-        <h1 className={styles.form_header}>Регистрация</h1>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="email" className={styles.form_label}>Email:</label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className={styles.form_input}
-            />
-          </div>
-          <div>
-            <label htmlFor="password" className={styles.form_label}>Пароль:</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className={styles.form_input}
-            />
-          </div>
-          <button type="submit" onClick={checkUser} className={styles.submit_button}>Зарегистрироваться</button>
-        </form>
+      <div style={styless.UnderHeader}>
+        <div className={styles.container}>
+          <h1 className={styles.form_header}>Регистрация</h1>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="email" className={styles.form_label}>Email:</label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className={styles.form_input}
+              />
+            </div>
+            <div>
+              <label htmlFor="password" className={styles.form_label}>Пароль:</label>
+              <input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className={styles.form_input}
+              />
+            </div>
+            <button type="submit" onClick={checkUser} className={styles.submit_button}>Зарегистрироваться</button>
+          </form>
+        </div>
       </div>
     </div>
   );
 }
+
+const styless = {
+  UnderHeader: {
+    marginTop: '10%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+}
+
 
 
 export default AuthPage;
