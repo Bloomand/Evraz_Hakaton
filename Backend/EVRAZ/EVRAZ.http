@@ -1,0 +1,6 @@
+@EVRAZ_HostAddress = http://localhost:5162
+
+GET {{EVRAZ_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

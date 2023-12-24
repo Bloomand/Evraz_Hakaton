@@ -22,20 +22,21 @@ const AuthPage = () => {
   function checkUser() {
     //Запрос на получения id и role
 
-    const paramObj = {
+    let paramObj = {
       headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       method: "POST",
       body: JSON.stringify({
-        login: email,
-        password: password
+        Login: email,
+        Password: password
       })
     }
-    fetch("https://26.254.63.154:7226/auth", paramObj)
+
+    fetch("https://localhost:7226/auth", paramObj)
       .then(response => response.json())
       .then(data => {
+        console.log(data);
         setUserInfo({
           userId: data["id"],
           role: data["role"]
@@ -60,7 +61,7 @@ const AuthPage = () => {
           <div>
             <label htmlFor="email" className={styles.form_label}>Email:</label>
             <input
-              type="email"
+              type="text"
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
