@@ -2,22 +2,24 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom'
 import Header from './Header';
 import DATA from '../Data';
-import Modal from '../components/ModalWindow';
 
 const MainPage = () => {
 
     const [example, setExample] = useState();
-    const [modal, setModal] = useState();
+    const [activeModalWagonId, setActiveModalWagonId] = useState(-1);
     const location = useLocation();
     let { objects } = location.state;
-    const [isVisible, setIsVisible] = useState(false);
 
-    useEffect(() => {
-        console.log("okey")
-        setModal(<div style={{ color: "#000" }}>
-            Я видимый объект!
-        </div>)
-    }, [isVisible])
+
+    const handleWagonClick = (wagonId) => {
+        setActiveModalWagonId(wagonId); // Устанавливаем ID вагона, для которого показываем модальное окно
+    }
+
+    const closeModal = (event) => {
+        event.stopPropagation(); // Останавливаем всплытие события.
+        setActiveModalWagonId(-1);
+    }
+
     useEffect(() => {
         objects = objects.filter(station => station.status !== 0)
         //Сбор полной информации в бд
@@ -43,29 +45,47 @@ const MainPage = () => {
                             marginTop: 12,
                             borderColor: '#000000'
                         }} />
-                        {station.parks.map((park) => (
-                            <div key={park.id} style={styles.park}>
-                                <div style={styles.parkHeader}>{park.name}</div>
-                                {modal}
-                                <div >{park.ways.map((path) => (
-                                    <div key={path.id} style={styles.pathInfo}>
-                                        <div style={styles.pathHeader}>Путь {path.num}</div>
-                                        <div style={styles.loko}>{path.loko.id}</div>
-                                        <div>{path.wagons.map((wagon) => (
-                                            <div key={wagon.id} onClick={() => { setIsVisible(1); console.log("open") }}
-                                                style={styles.wagon}>
-                                                {wagon.id}
-                                            </div>
+                    </div>
+                    <div>{station.parks.map((park) => (
+                        <div key={park.id} style={styles.park}>
+                            <div style={styles.parkHeader}>{park.name}</div>
+                            <div >
+                                {park.ways.map((path) => (
+                                    <>
+                                        <div key={path.id} style={styles.wayInfo}>
+                                            <div style={styles.wayHeader}>Путь {path.num}</div>
+                                            <div style={styles.loko}>{path.loko.id}</div>
+                                            <div>{path.wagons.map((wagon) => (
+                                                <div key={wagon.id}
+                                                    style={styles.wagon}
+                                                    onClick={() => handleWagonClick(wagon.id)}>
+                                                    {wagon.id}
+                                                    {activeModalWagonId === wagon.id && (
+                                                        <div>
+                                                            <div>Пустой вагон. Операция отсутствует</div>
+                                                            <div>Тип: ВКтУ</div>
+                                                            <div style={{
+                                                                backgroundColor: "#000",
+                                                                width: 100,
+                                                                justifyContent: 'center',
+                                                                alignItems: 'center',
+                                                                padding: '5px 20px',
+                                                                paddingLeft: 40,
+                                                            }} onClick={closeModal}>Закрыть</div>
+                                                        </div>
+                                                    )}
+                                                </div>
 
-                                        ))} </div>
-                                    </div>
+                                            ))} </div>
+                                        </div>
+                                    </>
                                 ))}</div>
-                            </div>
-                        ))}</div>
+                        </div>
+                    ))}</div>
                 </div>
             ))}</div>)
 
-    }, [window.location.search]);
+    }, [activeModalWagonId, location.search]);
 
     return (
         <div>
@@ -132,7 +152,7 @@ const styles = {
         display: 'flex',
         maxWidth: '1000px',
         backgroundColor: '#E5E4E2',
-        padding: '5px 15px',
+        padding: '5px 10px',
         margin: '5px 0',
         borderRadius: '5px',
         flexDirection: 'row',
@@ -143,7 +163,7 @@ const styles = {
         minWidth: '60px',
         maxWidth: '60px',
         color: '#444', // более темный для контраста
-        padding: '6px 12px',
+        padding: '12px 12px',
         background: '#fff', // светлый фон для визуального разделения
         marginRight: '16px' // увеличенный отступ справа для простора
     },

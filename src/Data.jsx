@@ -12,12 +12,12 @@ const DATA = {
                             id: 0,
                             num: 1,
                             loko: {
-                                id: 0,
+                                id: 231,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 12345,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -27,7 +27,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 12346,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -42,12 +42,12 @@ const DATA = {
                             id: 0,
                             num: 2,
                             loko: {
-                                id: 0,
+                                id: 232,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 12347,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -57,7 +57,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 12348,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -78,12 +78,12 @@ const DATA = {
                             id: 0,
                             num: 1,
                             loko: {
-                                id: 0,
+                                id: 233,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 12349,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -108,12 +108,12 @@ const DATA = {
                             id: 0,
                             num: 2,
                             loko: {
-                                id: 0,
+                                id: 234,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1240,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -123,7 +123,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1241,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -144,12 +144,12 @@ const DATA = {
                             id: 0,
                             num: 1,
                             loko: {
-                                id: 0,
+                                id: 235,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1242,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -159,7 +159,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1243,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -174,12 +174,12 @@ const DATA = {
                             id: 0,
                             num: 2,
                             loko: {
-                                id: 0,
+                                id: 236,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1244,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -189,7 +189,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1245,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -216,12 +216,12 @@ const DATA = {
                             id: 0,
                             num: 1,
                             loko: {
-                                id: 0,
+                                id: 237,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1246,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -231,7 +231,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1247,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -241,7 +241,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1248,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -256,12 +256,12 @@ const DATA = {
                             id: 0,
                             num: 2,
                             loko: {
-                                id: 0,
+                                id: 238,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1249,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -271,7 +271,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1250,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -286,12 +286,12 @@ const DATA = {
                             id: 0,
                             num: 3,
                             loko: {
-                                id: 0,
+                                id: 239,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1251,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -318,12 +318,12 @@ const DATA = {
                             id: 0,
                             num: 1,
                             loko: {
-                                id: 0,
+                                id: 280,
                                 driver: "",
-                            },
+                            }, 
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1252,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -333,7 +333,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1339,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -360,12 +360,12 @@ const DATA = {
                             id: 0,
                             num: 1,
                             loko: {
-                                id: 0,
+                                id: 239,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1253,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -375,7 +375,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1254,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -390,12 +390,12 @@ const DATA = {
                             id: 0,
                             num: 2,
                             loko: {
-                                id: 0,
+                                id: 240,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1255,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -405,7 +405,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1256,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -415,7 +415,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1257,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -425,7 +425,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1258,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -440,11 +440,11 @@ const DATA = {
                             id: 0,
                             num: 3,
                             loko: {
-                                id: 0,
+                                id: 241,
                                 driver: "",
                             },
                             wagons: [
-
+                                
                             ]
                         },
                     ]
@@ -457,12 +457,12 @@ const DATA = {
                             id: 0,
                             num: 1,
                             loko: {
-                                id: 0,
+                                id: 242,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1259,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -472,7 +472,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1260,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -487,12 +487,12 @@ const DATA = {
                             id: 0,
                             num: 2,
                             loko: {
-                                id: 0,
+                                id: 243,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1261,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -519,12 +519,12 @@ const DATA = {
                             id: 0,
                             num: 1,
                             loko: {
-                                id: 0,
+                                id: 244,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1262,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -534,7 +534,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1263,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -549,12 +549,12 @@ const DATA = {
                             id: 0,
                             num: 2,
                             loko: {
-                                id: 0,
+                                id: 245,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1264,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -564,7 +564,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1265,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -573,49 +573,49 @@ const DATA = {
                                     isOperation: 0,
                                     operation: "",
                                 },
-                                {
-                                    id: 0,
-                                    isEmpty: 0,
-                                    isSick: 0,
-                                    type: "",
-                                    owner: "",
-                                    cargo: "",
-                                    isOperation: 0,
-                                    operation: "",
-                                },
-                                {
-                                    id: 0,
-                                    isEmpty: 0,
-                                    isSick: 0,
-                                    type: "",
-                                    owner: "",
-                                    cargo: "",
-                                    isOperation: 0,
-                                    operation: "",
-                                },
-                                {
-                                    id: 0,
-                                    isEmpty: 0,
-                                    isSick: 0,
-                                    type: "",
-                                    owner: "",
-                                    cargo: "",
-                                    isOperation: 0,
-                                    operation: "",
-                                }
-
+                                    {
+                                        id: 1266,
+                                        isEmpty: 0,
+                                        isSick: 0,
+                                        type: "",
+                                        owner: "",
+                                        cargo: "",
+                                        isOperation: 0,
+                                        operation: "",
+                                    },
+                                    {
+                                        id: 1267,
+                                        isEmpty: 0,
+                                        isSick: 0,
+                                        type: "",
+                                        owner: "",
+                                        cargo: "",
+                                        isOperation: 0,
+                                        operation: "",
+                                    },
+                                    {
+                                        id: 1268,
+                                        isEmpty: 0,
+                                        isSick: 0,
+                                        type: "",
+                                        owner: "",
+                                        cargo: "",
+                                        isOperation: 0,
+                                        operation: "",
+                                    }
+                                
                             ]
                         },
                         {
                             id: 0,
                             num: 2,
                             loko: {
-                                id: 0,
+                                id: 246,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1269,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -625,7 +625,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1270,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -646,12 +646,12 @@ const DATA = {
                             id: 0,
                             num: 1,
                             loko: {
-                                id: 0,
+                                id: 247,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1271,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -661,7 +661,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1272,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -688,12 +688,12 @@ const DATA = {
                             id: 0,
                             num: 1,
                             loko: {
-                                id: 0,
+                                id: 248,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1273,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -703,7 +703,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1274,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -713,7 +713,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1275,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -723,7 +723,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1276,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -738,12 +738,12 @@ const DATA = {
                             id: 0,
                             num: 2,
                             loko: {
-                                id: 0,
+                                id: 249,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1277,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -758,12 +758,12 @@ const DATA = {
                             id: 0,
                             num: 3,
                             loko: {
-                                id: 0,
+                                id: 250,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1278,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -773,7 +773,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1279,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -794,7 +794,7 @@ const DATA = {
                             id: 0,
                             num: 1,
                             loko: {
-                                id: 0,
+                                id: 251,
                                 driver: "",
                             },
                             wagons: [
@@ -804,23 +804,23 @@ const DATA = {
                             id: 0,
                             num: 2,
                             loko: {
-                                id: 0,
+                                id: 252,
                                 driver: "",
                             },
                             wagons: [
-
+                                
                             ]
                         },
                         {
                             id: 0,
                             num: 3,
                             loko: {
-                                id: 0,
+                                id: 253,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1280,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -847,12 +847,12 @@ const DATA = {
                             id: 0,
                             num: 1,
                             loko: {
-                                id: 0,
+                                id: 254,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1281,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -862,7 +862,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1282,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -883,12 +883,12 @@ const DATA = {
                             id: 0,
                             num: 1,
                             loko: {
-                                id: 0,
+                                id: 255,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1283,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -898,7 +898,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1284,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -908,7 +908,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1285,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -918,7 +918,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1286,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -933,12 +933,12 @@ const DATA = {
                             id: 0,
                             num: 2,
                             loko: {
-                                id: 0,
+                                id: 256,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1287,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -948,7 +948,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1288,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -958,7 +958,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1289,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -979,12 +979,12 @@ const DATA = {
                             id: 0,
                             num: 1,
                             loko: {
-                                id: 0,
+                                id: 257,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1290,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -994,7 +994,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1291,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1021,12 +1021,12 @@ const DATA = {
                             id: 0,
                             num: 1,
                             loko: {
-                                id: 0,
+                                id: 258,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1292,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1036,7 +1036,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1293,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1046,7 +1046,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1294,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1056,7 +1056,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1295,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1066,7 +1066,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1296,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1076,7 +1076,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1297,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1086,7 +1086,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1298,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1101,12 +1101,12 @@ const DATA = {
                             id: 0,
                             num: 2,
                             loko: {
-                                id: 0,
+                                id: 259,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1299,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1116,7 +1116,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1300,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1126,7 +1126,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1301,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1136,7 +1136,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1302,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1151,12 +1151,12 @@ const DATA = {
                             id: 0,
                             num: 3,
                             loko: {
-                                id: 0,
+                                id: 260,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1303,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1166,7 +1166,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1304,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1182,12 +1182,12 @@ const DATA = {
                             id: 0,
                             num: 4,
                             loko: {
-                                id: 0,
+                                id: 261,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1305,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1197,7 +1197,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1306,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1213,11 +1213,11 @@ const DATA = {
                             id: 0,
                             num: 5,
                             loko: {
-                                id: 0,
+                                id: 262,
                                 driver: "",
                             },
                             wagons: [
-
+                                
                             ]
                         },
                     ]
@@ -1236,12 +1236,12 @@ const DATA = {
                             id: 0,
                             num: 1,
                             loko: {
-                                id: 0,
+                                id: 263,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1307,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1251,7 +1251,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1308,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1261,7 +1261,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1309,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1271,7 +1271,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1310,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1281,7 +1281,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1311,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1291,7 +1291,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1312,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1306,12 +1306,12 @@ const DATA = {
                             id: 0,
                             num: 2,
                             loko: {
-                                id: 0,
+                                id: 264,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1313,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1321,7 +1321,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1314,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1331,7 +1331,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1315,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1346,12 +1346,12 @@ const DATA = {
                             id: 0,
                             num: 3,
                             loko: {
-                                id: 0,
+                                id: 265,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1315,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1361,7 +1361,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1317,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1382,12 +1382,12 @@ const DATA = {
                             id: 0,
                             num: 1,
                             loko: {
-                                id: 0,
+                                id: 266,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1318,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1397,7 +1397,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1319,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1407,7 +1407,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1320,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1422,12 +1422,12 @@ const DATA = {
                             id: 0,
                             num: 2,
                             loko: {
-                                id: 0,
+                                id: 267,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1321,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1437,7 +1437,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1322,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1447,7 +1447,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1323,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1457,7 +1457,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1324,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1467,7 +1467,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1325,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1477,7 +1477,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1326,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1492,12 +1492,12 @@ const DATA = {
                             id: 0,
                             num: 3,
                             loko: {
-                                id: 0,
+                                id: 268,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1327,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1507,7 +1507,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1328,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1517,7 +1517,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1329,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1544,11 +1544,11 @@ const DATA = {
                             id: 0,
                             num: 1,
                             loko: {
-                                id: 0,
+                                id: 269,
                                 driver: "",
                             },
                             wagons: [
-
+                                
                             ]
                         }
                     ]
@@ -1561,12 +1561,12 @@ const DATA = {
                             id: 0,
                             num: 1,
                             loko: {
-                                id: 0,
+                                id: 270,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1330,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1576,7 +1576,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1331,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1586,7 +1586,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1332,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1601,12 +1601,12 @@ const DATA = {
                             id: 0,
                             num: 2,
                             loko: {
-                                id: 0,
+                                id: 271,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1333,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1616,7 +1616,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1334,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1626,7 +1626,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1335,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1636,7 +1636,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1336,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1651,12 +1651,12 @@ const DATA = {
                             id: 0,
                             num: 3,
                             loko: {
-                                id: 0,
+                                id: 272,
                                 driver: "",
                             },
                             wagons: [
                                 {
-                                    id: 0,
+                                    id: 1337,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1666,7 +1666,7 @@ const DATA = {
                                     operation: "",
                                 },
                                 {
-                                    id: 0,
+                                    id: 1338,
                                     isEmpty: 0,
                                     isSick: 0,
                                     type: "",
@@ -1683,5 +1683,6 @@ const DATA = {
         }
     ]
 };
+
 
 export default DATA;
