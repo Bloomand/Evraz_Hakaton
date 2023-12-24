@@ -1,6 +1,5 @@
 const Users = {
-    "users":
-    [
+    users: [
         {
             "id": 1,
             "role": 0,
@@ -27,3 +26,5 @@ const Users = {
         }
     ]
 }
+export default Users;
+

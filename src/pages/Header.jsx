@@ -1,34 +1,24 @@
 import React from 'react'
-
-import {Link} from "react-router-dom"
+import logot from "../logo.jpeg";
+import { Link } from "react-router-dom"
 
 export default function Header(props) {
   let Authentic = [];
-  if (props.isLogged === 1) {
-    Authentic.push(
-      <div className='rightcontainer'><Link to='/profile' style={styles.link}>
-        Profile
-      </Link></div>
-    );
-  } else {
-    Authentic.push(
-      <div className='rightcontainer'>
-        <Link to='/signinto' style={styles.signInButton}>
-          <span>Sign In</span>
-        </Link>
-      </div>
-    );
-  }
+  Authentic.push(
+    <div className='rightcontainer'>
+      <button  style={styles.signInButton}>
+        Sign In
+      </button>
+    </div>
+  );
 
   return (
     <header style={styles.container}>
-      <div>
-        <Link to='/' style={styles.logo}>sofTTech</Link>
+      <div style={styles.logo}>
+        <img src={logot} />
       </div>
       <div className='leftcontainer'>
-        <Link to='/test' style={styles.link}>Create Test</Link>
-        
-        { !props.isLogged && <Link to='/signinto' style={styles.link}>Login</Link> }
+        <Link to='/main' style={styles.link}>Main Information</Link>
       </div>
       {Authentic}
     </header>
@@ -38,7 +28,8 @@ export default function Header(props) {
 
 const styles = {
   container: {
-    backgroundColor: '#333', // A nice dark background for the header
+    height: '80px',
+    backgroundColor: 'white', // A nice dark background for the header
     color: '#fff', // White text color
     display: 'flex', // Using flexbox for layout
     justifyContent: 'space-between', // Space out left and right containers
@@ -47,35 +38,33 @@ const styles = {
     boxShadow: '0 2px 4px rgba(0,0,0,0.1)' // subtle shadow for depth
   },
   logo: {
-    fontWeight: 'bold', // Bold font for logo
-    fontSize: '1.5rem', // Larger font size for the logo
-    color: '#61dafb', // Use React's logo color for some flair
-    textDecoration: 'none', // Remove underline from logo link
-    padding: '10px 0' // Some padding to increase tap target on mobile
+    height: '60px',
   },
   link: {
     marginRight: '15px', // Space out the navigation links
-    color: '#fff', // White text color for the links
+    color: 'black', // White text color for the links
     textDecoration: 'none', // No underline
-    padding: '10px', // Space around the links for a bigger tap/click target
-    fontSize: '1rem', // Font size for navigation links
-    fontWeight: 'normal',
+    padding: '20px', // Space around the links for a bigger tap/click target
+    fontSize: '24px', // Font size for navigation links
+    fontWeight: 'bold',
     transition: 'color 0.3s' // Transition for hover effect
   },
   signInButton: {
-    backgroundColor: '#5C47E0', // A pleasant purple for the sign in button
-    color: '#fff', // White text
-    padding: '10px 15px', // Padding for dimension
-    borderRadius: '5px', // Rounded corners
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+    backgroundColor: 'black',
+    fontSize: '24px',
+    color: 'white', // White text
+    padding: '10px 55px', // Padding for dimension
     textDecoration: 'none', // Again, no underline
     display: 'inline-flex', // Align the text and image inline
     alignItems: 'center', // Center align the items
     boxShadow: '0 2px 4px rgba(0,0,0,0.2)', // A slightly darker shadow for contrast
-    transition: 'background-color 0.3s, box-shadow 0.3s' // Smooth transitions on hover
+    transition: 'background-color 0.3s, box-shadow 0.3s', // Smooth transitions on hover
+    fontWeight: 'bold'
   },
-  signInImage: {
-    marginLeft: '10px', // Space out text and image
-    height: '20px', // Specify image size to make sure it's not too big
-    width: '20px' // Maintain aspect ratio but you can ignore it if your image is SVG
+  activeButton: {
+    background: '#349EFF',
+    color: 'white',
+    borderColor: '#349EFF'
   }
 };

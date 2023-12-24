@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Header from './Header';
+import DATA from '../Data';
+import Shipment from '../Shipment';
 
 
 const ChooseStation = () => {
@@ -17,56 +20,24 @@ const ChooseStation = () => {
         userInfo[key] = value;
     }
 
-    useEffect(() => {
-
-        const abortController = new AbortController();
-        const signal = abortController.signal;
-        let paramObj = {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: "POST",
-            body: "",
-            signal: signal
+    if (userInfo.role == 0) {
+        //запрос на все станции
+        for (let i of DATA.stations){
+            stationList.push({id:i.id,name:i.name});
         }
-
-        if (userInfo.role == 0) {
-            //запрос на все станции
-
-            fetch("https://localhost:7226/admin_stations", paramObj)
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data["stations"]);
-                    if (Array.isArray(data["stations"])) { // or do similar validation to ensure it's an array
-                        setStationList(data["stations"]);
-                    }else{
-                        console.log("NOOOOO")
+    } else {
+        //запрос на одну станцию с учетом id usera userInfo.userId
+        for (let i of Shipment.shipment){
+            if(i.operator==userInfo.userId){
+                for (let k of DATA.stations){
+                    if(i.station==k.id){
+                        stationList.push({id:k.id,name:k.name});
                     }
-                })
-                .catch(err => {
-                    if (err.name === 'AbortError') {
-                        console.log('Fetch aborted');
-                    } else {
-                        console.error("An error occurred while fetching admin stations:", err);
-                    }
-                });
-
-        } else {
-            //запрос на одну станцию с учетом id usera userInfo.userId
-            paramObj.body = JSON.stringify({
-                userId: userInfo.userId
-            })
-            fetch("https://localhost:7226/user_station", paramObj)
-                .then(response => response.json())
-                .then(data => { setStationList([data["station"]]); })
-
+                    
+                }
+            }
         }
-        return () => {
-            abortController.abort();
-        };
-        // You would need to add any external values used inside the effect that might change over time to the dependencies array
-    }, [userInfo.role, userInfo.userId]);
+    }
 
     const [optionsList, setOptionsList] = useState();
 
@@ -123,8 +94,18 @@ const ChooseStation = () => {
         <div style={styles.pageall}>
             <div style={styles.container}>
                 <h1>Выбор станции</h1>
-                {example}
-                <button id="button_next" onClick={stationInfo} disabled={numChoice === 0}>Перейти в меню станции</button>
+                <div style={styles.buttonContainer}>
+                    {optionsList.map(option => (
+                        <button
+                            key={option.id}
+                            onClick={() => handleStationClick(option.id)}
+                            style={{ ...styles.button, ...(option.status === 1 ? styles.activeButton : {}) }}
+                        >
+                            {option.name}
+                        </button>
+                    ))}
+                </div>
+                <button style={styles.NextPageButton} id="button_next" onClick={stationInfo} disabled={numChoice === 0}>Перейти в меню станции</button>
             </div>
         </div>
     )
@@ -154,7 +135,6 @@ const styles = {
     },
     buttonContainer: {
         fontSize: '25px',
-        height: '50px',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -162,7 +142,7 @@ const styles = {
         marginTop: '10px'
     },
     button: {
-        padding: '10px 20px',
+        padding: '20px 20px',
         margin: '5px',
         border: '1px solid #ccc',
         background: 'white',
@@ -173,6 +153,16 @@ const styles = {
         background: '#349EFF',
         color: 'white',
         borderColor: '#349EFF'
+    },
+    NextPageButton:{
+        backgroundColor:'black',
+        padding:'10px 30px 10px 30px',
+        margin: 20,
+        color:'white',  
+        display:'flex',
+        alignItems:'center',
+        fontWeight:'bolt',
+        fontSize:'18px'
     }
 }
 
